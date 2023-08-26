@@ -8,15 +8,19 @@ import cookieParser from 'cookie-parser';
 
 const app: Application = express();
 
+// Using cors
 app.use(cors());
 app.use(cookieParser());
 
-//parser
+// Parse data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Routes
+app.get('/', (req: Request, res: Response) => {
+  res.send('Welcome To University Management Core Service Server');
+});
 app.use('/api/v1', routes);
-
 
 //global error handler
 app.use(globalErrorHandler);
