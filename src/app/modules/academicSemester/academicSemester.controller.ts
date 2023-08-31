@@ -1,6 +1,7 @@
 import { AcademicSemester } from "@prisma/client";
 import { Request, Response } from "express";
 import httpStatus from "http-status";
+import { paginationFields } from "../../../constants/pagination";
 import catchAsync from "../../../shared/catchAsync";
 import pick from "../../../shared/pick";
 import sendResponse from "../../../shared/sendResponse";
@@ -27,12 +28,7 @@ export const createAcademicSemester = catchAsync(
 export const getAllAcademicSemester = catchAsync(
   async (req: Request, res: Response) => {
     const filters = pick(req.query, academicSemesterFilterableFields);
-    const pagination = pick(req.query, [
-      "page",
-      "limit",
-      "sortBy",
-      "sortOrder",
-    ]);
+    const pagination = pick(req.query, paginationFields);
 
     const result = await getAllAcademicSemesterFromDB(filters, pagination);
 
