@@ -1,7 +1,7 @@
-import { Server } from 'http';
-import app from './app';
-import config from './config';
-import { errorlogger, logger } from './shared/logger';
+import { Server } from "http";
+import app from "./app";
+import config from "./config";
+import { errorlogger, logger } from "./shared/logger";
 
 async function dbConnect() {
   const server: Server = app.listen(config.port, () => {
@@ -11,7 +11,7 @@ async function dbConnect() {
   const exitHandler = () => {
     if (server) {
       server.close(() => {
-        logger.info('Server closed');
+        logger.info("Server closed");
       });
     }
     process.exit(1);
@@ -22,11 +22,11 @@ async function dbConnect() {
     exitHandler();
   };
 
-  process.on('uncaughtException', unexpectedErrorHandler);
-  process.on('unhandledRejection', unexpectedErrorHandler);
+  process.on("uncaughtException", unexpectedErrorHandler);
+  process.on("unhandledRejection", unexpectedErrorHandler);
 
-  process.on('SIGTERM', () => {
-    logger.info('SIGTERM received');
+  process.on("SIGTERM", () => {
+    logger.info("SIGTERM received");
     if (server) {
       server.close();
     }
