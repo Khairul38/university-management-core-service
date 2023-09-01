@@ -1,11 +1,11 @@
-export const academicSemesterSearchableFields = [
+export const academicSemesterSearchableFields: string[] = [
   "title",
   "code",
   "startMonth",
   "endMonth",
 ];
 
-export const academicSemesterFilterableFields = [
+export const academicSemesterFilterableFields: string[] = [
   "searchTerm",
   "code",
   "startMonth",

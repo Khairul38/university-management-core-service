@@ -1,3 +1,3 @@
 export type IFacultyFilters = {
-  searchTerm?: string;
+  searchTerm?: string | undefined;
 };

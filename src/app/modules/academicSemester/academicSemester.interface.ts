@@ -1,3 +1,3 @@
 export type IAcademicSemesterFilters = {
-  searchTerm?: string;
+  searchTerm?: string | undefined;
 };
